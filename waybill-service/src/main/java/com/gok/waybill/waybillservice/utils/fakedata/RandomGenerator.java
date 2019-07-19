@@ -5,6 +5,7 @@ import com.gok.waybill.waybillservice.model.CategoryMachine;
 import com.gok.waybill.waybillservice.model.Driver;
 import com.gok.waybill.waybillservice.model.Machine;
 import com.gok.waybill.waybillservice.model.Waybill;
+import com.gok.waybill.waybillservice.model.constants.Status;
 import com.gok.waybill.waybillservice.model.waybill.Result;
 import com.gok.waybill.waybillservice.model.waybill.TSM;
 import com.gok.waybill.waybillservice.model.waybill.WorkDriverAndMachine;
@@ -139,6 +140,7 @@ public final class RandomGenerator {
         int max = r.nextInt() + 5;
         for (int i = 0; i < 10; i++) {
             Waybill waybill = Waybill.builder()
+                    .status(Status.values()[new Random().nextInt(Status.values().length)])
                     .number(faker.number().digits(5))
                     .date(faker.date().birthday())
                     .driver(drivers.get(new Random().nextInt(drivers.size())))
