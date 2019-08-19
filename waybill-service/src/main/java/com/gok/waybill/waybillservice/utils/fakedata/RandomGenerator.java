@@ -1,14 +1,14 @@
 package com.gok.waybill.waybillservice.utils.fakedata;
 
 import com.github.javafaker.Faker;
-import com.gok.waybill.waybillservice.model.CategoryMachine;
-import com.gok.waybill.waybillservice.model.Driver;
-import com.gok.waybill.waybillservice.model.Machine;
-import com.gok.waybill.waybillservice.model.Waybill;
-import com.gok.waybill.waybillservice.model.constants.Status;
-import com.gok.waybill.waybillservice.model.waybill.Result;
-import com.gok.waybill.waybillservice.model.waybill.TSM;
-import com.gok.waybill.waybillservice.model.waybill.WorkDriverAndMachine;
+import com.gok.waybill.waybillservice.data.model.CategoryMachine;
+import com.gok.waybill.waybillservice.data.model.Driver;
+import com.gok.waybill.waybillservice.data.model.Machine;
+import com.gok.waybill.waybillservice.data.model.Waybill;
+import com.gok.waybill.waybillservice.data.model.constants.Status;
+import com.gok.waybill.waybillservice.data.model.waybill.Result;
+import com.gok.waybill.waybillservice.data.model.waybill.TSM;
+import com.gok.waybill.waybillservice.data.model.waybill.WorkDriverAndMachine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,17 +73,16 @@ public final class RandomGenerator {
     }
 
 
-
     public static List<TSM> randomTsmList() {
         List<TSM> randomTsmList = new ArrayList<>();
         Random r = new Random(3);
         int max = r.nextInt() + 5;
         for (int i = 0; i < 10; i++) {
             TSM tsm = TSM.builder()
-                    .amountOfFuel(faker.number().numberBetween(0,100))
+                    .amountOfFuel(faker.number().numberBetween(0, 100))
                     .fuelingDate(faker.date().birthday())
-                    .startedAmountOfFuel(faker.number().numberBetween(0,100))
-                    .finalAmountOfFuel(faker.number().numberBetween(0,20))
+                    .startedAmountOfFuel(faker.number().numberBetween(0, 100))
+                    .finalAmountOfFuel(faker.number().numberBetween(0, 20))
                     .fuelType(faker.beer().name())
                     //.machine(machines.get(new Random().nextInt(machines.size())))
                     .build();
@@ -94,17 +93,17 @@ public final class RandomGenerator {
         return randomTsmList;
     }
 
- public static List<Result> randomResultList() {
+    public static List<Result> randomResultList() {
         List<Result> randomTsmList = new ArrayList<>();
         Random r = new Random(3);
         int max = r.nextInt() + 5;
         for (int i = 0; i < 10; i++) {
             Result result = Result.builder()
-                   // .amountOfFuel(faker.number().numberBetween(0,100))
-                   // .fuelingDate(faker.date().birthday())
-                  //  .startedAmountOfFuel(faker.number().numberBetween(0,100))
-                  //  .finalAmountOfFuel(faker.number().numberBetween(0,20))
-                  //  .fuelType(faker.beer().name())
+                    // .amountOfFuel(faker.number().numberBetween(0,100))
+                    // .fuelingDate(faker.date().birthday())
+                    //  .startedAmountOfFuel(faker.number().numberBetween(0,100))
+                    //  .finalAmountOfFuel(faker.number().numberBetween(0,20))
+                    //  .fuelType(faker.beer().name())
                     //.machine(machines.get(new Random().nextInt(machines.size())))
                     .build();
             result.setId(i);
@@ -114,17 +113,17 @@ public final class RandomGenerator {
         return randomTsmList;
     }
 
- public static List<WorkDriverAndMachine> randomWorkDriverAndMachinesList() {
+    public static List<WorkDriverAndMachine> randomWorkDriverAndMachinesList() {
         List<WorkDriverAndMachine> workDriverAndMachines = new ArrayList<>();
         Random r = new Random(3);
         int max = r.nextInt() + 5;
         for (int i = 0; i < 10; i++) {
             WorkDriverAndMachine workDriverAndMachine = WorkDriverAndMachine.builder()
-                   // .amountOfFuel(faker.number().numberBetween(0,100))
-                   // .fuelingDate(faker.date().birthday())
-                  //  .startedAmountOfFuel(faker.number().numberBetween(0,100))
-                  //  .finalAmountOfFuel(faker.number().numberBetween(0,20))
-                  //  .fuelType(faker.beer().name())
+                    // .amountOfFuel(faker.number().numberBetween(0,100))
+                    // .fuelingDate(faker.date().birthday())
+                    //  .startedAmountOfFuel(faker.number().numberBetween(0,100))
+                    //  .finalAmountOfFuel(faker.number().numberBetween(0,20))
+                    //  .fuelType(faker.beer().name())
                     //.machine(machines.get(new Random().nextInt(machines.size())))
                     .build();
             workDriverAndMachine.setId(i);

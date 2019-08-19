@@ -1,6 +1,6 @@
 #FileLock
-#Mon Aug 19 19:47:59 MSK 2019
-server=127.0.1.1\:45589
+#Mon Aug 19 22:59:52 MSK 2019
 hostName=vvator-vb
+id=16cab76e68c542cf951d21fa1d403f947aee04a6d69
 method=file
-id=16caac73b4d1b77ed694a425a6562b8f0dc7391f67d
+server=127.0.1.1\:40337

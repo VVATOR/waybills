@@ -1,55 +1,86 @@
+schema {
+    # The query root of Waybill`s GraphQL interface.
+    query: Query
+
+}
+
+
+# The Root Mutation for the application
+#type Mutation {
+#    writePost(title: String!, text: String!, category: String) : Post!
+#}
+
+# The Root Query for the application
 type Query {
-  waybillById(id: ID): Waybill
+    allWaybills: [Waybill]
+    countWaybills: Int!
+    # recentPosts(count: Int, offset: Int): [Waybill]!
 }
 
 #scalar Date
 
 type Waybill {
-  id: ID
-#  status: Status
-#  number: String
-#  date: Date;
-#  driver: Driver
-#  machine: Machine
-#  task: Task
-#  workDriverAndMachine: WorkDriverAndMachine
-#  result: Result
-#  tsm: TSM
+    id: ID
+    status: Status
+    number: String
+    #  date: Date
+    driver: Driver
+    machine: Machine
+    task: Task
+    workDriverAndMachine: WorkDriverAndMachine
+    result: Result
+    tsm: TSM
 
-
-  # name: String
-  # pageCount: Int
-  # author: Author
+    # name: String
+    # pageCount: Int
+    # author: Author
 }
 
-type TSM {
+#scalar Date
 
+type TSM {
+    id: Int
 }
 
 type Result {
-
+    id: Int
 }
 
 type WorkDriverAndMachine {
-
+    id: Int
 }
 
 type Task {
-
+    id: Int
+    customer:String
+    #  dateArriving:Date
+    #  dateDeparture:Date
+    departurePoint:String
+    destinationPoint:String
+    cargo:String
 }
 
 type Machine {
+    id: Int
+    name: String
+    categoryMachine: CategoryMachine
+    registrationNumber: String
+    garageNumber: String
+}
 
+type CategoryMachine {
+    id: Int
+    name: String
 }
 
 enum Status {
-  ACTIVE
-  CLOSED
-  BROKEN
+    ACTIVE
+    CLOSED
+    BROKEN
 }
 
 type Driver {
-  id: ID
-  firstName: String
-  lastName: String
+    id: Int
+    name: String
+    personalNumber: String
 }
