@@ -1,0 +1,55 @@
+type Query {
+  waybillById(id: ID): Waybill
+}
+
+#scalar Date
+
+type Waybill {
+  id: ID
+#  status: Status
+#  number: String
+#  date: Date;
+#  driver: Driver
+#  machine: Machine
+#  task: Task
+#  workDriverAndMachine: WorkDriverAndMachine
+#  result: Result
+#  tsm: TSM
+
+
+  # name: String
+  # pageCount: Int
+  # author: Author
+}
+
+type TSM {
+
+}
+
+type Result {
+
+}
+
+type WorkDriverAndMachine {
+
+}
+
+type Task {
+
+}
+
+type Machine {
+
+}
+
+enum Status {
+  ACTIVE
+  CLOSED
+  BROKEN
+}
+
+type Driver {
+  id: ID
+  firstName: String
+  lastName: String
+}

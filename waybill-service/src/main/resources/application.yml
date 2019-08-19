@@ -3,3 +3,23 @@ server:
 spring:
   application:
     name: waybill-service
+
+  datasource:
+    url: jdbc:h2:file:/media/sf_GROW/JAVA/waybill-root/waybill-service/src/main/resources/db;AUTO_SERVER=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+graphql:
+  servlet:
+    enabled: true
+    corsEnabled: true
+    mapping: /graphql
+
+logging:
+  level:
+    web: DEBUG
