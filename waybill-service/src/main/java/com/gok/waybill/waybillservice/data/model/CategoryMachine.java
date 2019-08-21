@@ -5,9 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Getter
 @Setter
@@ -19,6 +18,9 @@ public class CategoryMachine extends Model {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "categoryMachine", fetch = FetchType.EAGER)
+    private Collection<Machine> machines;
 
     public CategoryMachine() {
     }

@@ -11,11 +11,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
+
+import static javax.persistence.FetchType.LAZY;
 
 @Getter
 @Setter
@@ -33,23 +33,33 @@ public class Waybill extends Model {
     @Column
     private Date date;
 
-    @OneToOne
-    private Driver driver;
-
-    @OneToOne
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "machine_id")
     private Machine machine;
 
-    @OneToOne
-    private Task task;
+    @ManyToMany(fetch = LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "waybill_driver",
+            joinColumns = @JoinColumn(name = "way_id"),
+            inverseJoinColumns = @JoinColumn(name = "driv_id")
+    )
+    private Collection<Driver> drivers;
 
-    @OneToOne
-    private WorkDriverAndMachine workDriverAndMachine;
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "task_id")
+    private Task task; //+
 
-    @OneToOne
-    private Result result;
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "work_id")
+    private WorkDriverAndMachine workDriverAndMachine; //+
 
-    @OneToOne
-    private TSM tsm;
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "result_id")
+    private Result result; //+
+
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
+    @JoinColumn(name = "tsm_id")
+    private TSM tsm; //+
 
     public Waybill() {
     }
