@@ -8,10 +8,7 @@ import com.gok.waybill.waybillservice.data.model.waybill.Result;
 import com.gok.waybill.waybillservice.data.model.waybill.TSM;
 import com.gok.waybill.waybillservice.data.model.waybill.Task;
 import com.gok.waybill.waybillservice.data.model.waybill.WorkDriverAndMachine;
-import com.gok.waybill.waybillservice.data.repositories.CategoryRepository;
-import com.gok.waybill.waybillservice.data.repositories.DriverRepository;
-import com.gok.waybill.waybillservice.data.repositories.MachineRepository;
-import com.gok.waybill.waybillservice.data.repositories.WaybillRepository;
+import com.gok.waybill.waybillservice.data.repositories.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,9 +21,9 @@ import static com.gok.waybill.waybillservice.utils.fakedata.RandomGenerator.*;
 @Slf4j
 public final class FillCommonFakeDatabase {
 
-
     @Autowired
     public FillCommonFakeDatabase(
+            UserRepository userRepository,
             WaybillRepository waybillRepository,
             MachineRepository machineRepository,
             DriverRepository driverRepository,
