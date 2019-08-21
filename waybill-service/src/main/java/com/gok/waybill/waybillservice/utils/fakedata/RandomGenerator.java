@@ -8,22 +8,26 @@ import com.gok.waybill.waybillservice.data.model.Waybill;
 import com.gok.waybill.waybillservice.data.model.constants.Status;
 import com.gok.waybill.waybillservice.data.model.waybill.Result;
 import com.gok.waybill.waybillservice.data.model.waybill.TSM;
+import com.gok.waybill.waybillservice.data.model.waybill.Task;
 import com.gok.waybill.waybillservice.data.model.waybill.WorkDriverAndMachine;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.time.LocalDate;
+import java.util.*;
 
+import static com.gok.waybill.waybillservice.utils.TimeUtils.convertToLocalDateViaMilisecond;
 import static com.gok.waybill.waybillservice.utils.fakedata.CommonFakeDatabase.*;
 
 public final class RandomGenerator {
-    private static Faker faker = new Faker();
+
+    private static Faker faker = new Faker(new Locale("ru"));
+    private static Random r = new Random(3);
+
+    private RandomGenerator() {
+    }
 
     public static List<CategoryMachine> randomCategoryList() {
         List<CategoryMachine> randomCategoryMachineList = new ArrayList<>();
-        Random r = new Random(3);
-        int max = r.nextInt() + 5;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             CategoryMachine categoryMachine = CategoryMachine.builder()
                     .name(faker.company().name())
                     .build();
@@ -35,11 +39,8 @@ public final class RandomGenerator {
     }
 
     public static List<Machine> randomMachineList() {
-
         List<Machine> randomMachineList = new ArrayList<>();
-        Random r = new Random(3);
-        int max = r.nextInt() + 5;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             Machine machine = Machine.builder()
                     .name(faker.app().name())
                     .garageNumber(faker.number().digit())
@@ -50,17 +51,13 @@ public final class RandomGenerator {
             randomMachineList.add(machine);
         }
 
-
         return randomMachineList;
     }
 
 
     public static List<Driver> randomDriverList() {
-
         List<Driver> randomDriverList = new ArrayList<>();
-        Random r = new Random(3);
-        int max = r.nextInt() + 5;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             Driver driver = Driver.builder()
                     .name(faker.name().name())
                     .personalNumber("" + r.nextInt(10000))
@@ -75,16 +72,13 @@ public final class RandomGenerator {
 
     public static List<TSM> randomTsmList() {
         List<TSM> randomTsmList = new ArrayList<>();
-        Random r = new Random(3);
-        int max = r.nextInt() + 5;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             TSM tsm = TSM.builder()
                     .amountOfFuel(faker.number().numberBetween(0, 100))
-                    .fuelingDate(faker.date().birthday())
+                    .fuelingDate(LocalDate.now().plusDays(r.nextInt(100)))
                     .startedAmountOfFuel(faker.number().numberBetween(0, 100))
                     .finalAmountOfFuel(faker.number().numberBetween(0, 20))
                     .fuelType(faker.beer().name())
-                    //.machine(machines.get(new Random().nextInt(machines.size())))
                     .build();
             tsm.setId(i);
             randomTsmList.add(tsm);
@@ -93,11 +87,27 @@ public final class RandomGenerator {
         return randomTsmList;
     }
 
+    public static List<Task> randomTasksList() {
+        List<Task> randomTaskList = new ArrayList<>();
+        for (int i = 1; i < 10; i++) {
+            Task task = Task.builder()
+                    .cargo(faker.beer().name())
+                    .customer(faker.pokemon().name())
+                    .dateArriving(LocalDate.now().plusDays(r.nextInt(100)))
+                    .dateDeparture(LocalDate.now().minusDays(r.nextInt(100)))
+                    .departurePoint(faker.address().city())
+                    .destinationPoint(faker.address().city())
+                    .build();
+            task.setId(i);
+            randomTaskList.add(task);
+        }
+
+        return randomTaskList;
+    }
+
     public static List<Result> randomResultList() {
         List<Result> randomTsmList = new ArrayList<>();
-        Random r = new Random(3);
-        int max = r.nextInt() + 5;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             Result result = Result.builder()
                     // .amountOfFuel(faker.number().numberBetween(0,100))
                     // .fuelingDate(faker.date().birthday())
@@ -115,9 +125,7 @@ public final class RandomGenerator {
 
     public static List<WorkDriverAndMachine> randomWorkDriverAndMachinesList() {
         List<WorkDriverAndMachine> workDriverAndMachines = new ArrayList<>();
-        Random r = new Random(3);
-        int max = r.nextInt() + 5;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             WorkDriverAndMachine workDriverAndMachine = WorkDriverAndMachine.builder()
                     // .amountOfFuel(faker.number().numberBetween(0,100))
                     // .fuelingDate(faker.date().birthday())
@@ -135,16 +143,15 @@ public final class RandomGenerator {
 
     public static List<Waybill> randomWaybillList() {
         List<Waybill> randomWaybillList = new ArrayList<>();
-        Random r = new Random(3);
-        int max = r.nextInt() + 5;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 10; i++) {
             Waybill waybill = Waybill.builder()
                     .status(Status.values()[new Random().nextInt(Status.values().length)])
                     .number(faker.number().digits(5))
-                    .date(faker.date().birthday())
-                    .driver(drivers.get(new Random().nextInt(drivers.size())))
+                    .date(convertToLocalDateViaMilisecond(faker.date().birthday()))
+                    .drivers(Arrays.asList(drivers.get(new Random().nextInt(drivers.size()))))
                     .machine(machines.get(new Random().nextInt(machines.size())))
                     .tsm(tsm.get(new Random().nextInt(tsm.size())))
+                    .task(tasks.get(new Random().nextInt(tasks.size())))
                     .result(results.get(new Random().nextInt(results.size())))
                     .workDriverAndMachine(workDriverAndMachines.get(new Random().nextInt(workDriverAndMachines.size())))
                     //.machine(machines.get(new Random().nextInt(machines.size())))

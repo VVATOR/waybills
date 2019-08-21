@@ -20,7 +20,7 @@ public class InfoController {
     @GetMapping("/info")
     public InfoWaybillDto waybillsInfo() {
         // Todo change active count algorithm
-        return new InfoWaybillDto(waybills.size(), waybills.size());
+        return new InfoWaybillDto(list.size(), list.size());
     }
 
 

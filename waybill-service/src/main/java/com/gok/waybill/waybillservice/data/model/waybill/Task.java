@@ -11,7 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -21,25 +21,27 @@ import java.util.Date;
 @Table(name = "task")
 public class Task extends Model {
 
-    @Column(name="customer")
+    @Column(name = "customer")
     private String customer;
 
-    // @Column(name="date_arriving")
-    // private Date dateArriving;
+    @Column(name = "date_arriving")
+    private LocalDate dateArriving;
 
-    // @Column(name="date_departure")
-    // private Date dateDeparture;
+    @Column(name = "date_departure")
+    private LocalDate dateDeparture;
 
-    @Column(name="departure_point")
+    @Column(name = "departure_point")
     private String departurePoint;
 
-    @Column(name="destination_point")
+    @Column(name = "destination_point")
     private String destinationPoint;
 
-    @Column(name="cargo")
+    @Column(name = "cargo")
     private String cargo;
 
     @OneToOne(optional = false, mappedBy = "task")
     private Waybill waybill;
 
+    public Task() {
+    }
 }

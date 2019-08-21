@@ -24,12 +24,12 @@ type Waybill {
     status: Status
     number: String
     #  date: Date
-    driver: Driver
-    machine: Machine
-    task: Task
-    workDriverAndMachine: WorkDriverAndMachine
-    result: Result
-    tsm: TSM
+    #drivers: [Driver]
+    #machine: Machine
+    #task: Task
+    #workDriverAndMachine: WorkDriverAndMachine
+    #result: Result
+    #tsm: TSM
 
     # name: String
     # pageCount: Int
@@ -63,7 +63,7 @@ type Task {
 type Machine {
     id: Int
     name: String
-    categoryMachine: CategoryMachine
+   # categoryMachine: CategoryMachine
     registrationNumber: String
     garageNumber: String
 }

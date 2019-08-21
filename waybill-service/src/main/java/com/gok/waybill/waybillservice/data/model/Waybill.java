@@ -12,8 +12,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
 
 import static javax.persistence.FetchType.LAZY;
 
@@ -31,7 +31,7 @@ public class Waybill extends Model {
     private String number;
 
     @Column
-    private Date date;
+    private LocalDate date;
 
     @OneToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "machine_id")
