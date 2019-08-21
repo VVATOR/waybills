@@ -1,12 +1,24 @@
 dist: bionic
 language: java
 deploy:
-  provider: heroku
-  api-key:
-    secure: $HEROKU_API_KEY
-  app: waybill-service
-  file_glob: true
-  file:
-    - Procfile
-    - waybill-root/waybill-service/target/waybill-service.jar
+  - provider: heroku
+    api-key:
+      secure: $HEROKU_API_KEY
+    app: waybill-service
+    file_glob: true
+    file:
+      - Procfile
+      - waybill-root/waybill-service/target/waybill-service.jar
+    on:
+      branch: master
+  - provider: heroku
+    api-key:
+      secure: $HEROKU_API_KEY
+    app: waybill-service-dev
+    file_glob: true
+    file:
+      - Procfile
+      - waybill-root/waybill-service/target/waybill-service.jar
+    on:
+      branch: develop
 
