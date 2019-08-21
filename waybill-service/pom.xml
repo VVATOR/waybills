@@ -66,6 +66,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <finalName>${project.name}</finalName>
+                    <mainClass>com.gok.waybill.waybillservice.WaybillServiceApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
