@@ -4,7 +4,7 @@ deploy:
   file_glob: true
   file:
     - Procfile
-    - waybill-service/target/waybill-service.jar
+    - waybill-root/waybill-service/target/waybill-service.jar
   provider: heroku
   api-key:
     secure: $HEROKU_API_KEY
