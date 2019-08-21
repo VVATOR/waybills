@@ -1,4 +1,4 @@
-package com.gok.waybill.waybillservice.dto;
+package com.gok.waybill.waybillservice.data.dto;
 
 
 import lombok.AllArgsConstructor;

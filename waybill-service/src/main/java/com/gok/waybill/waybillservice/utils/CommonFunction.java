@@ -1,6 +1,6 @@
 package com.gok.waybill.waybillservice.utils;
 
-import com.gok.waybill.waybillservice.model.Model;
+import com.gok.waybill.waybillservice.data.model.Model;
 
 import java.util.function.Predicate;
 
