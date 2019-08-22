@@ -7,9 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -19,6 +17,13 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User extends Model {
 
+    public User(Integer id, boolean isDeleted, String login, String password, Role role) {
+        super(id, isDeleted);
+        this.login = login;
+        this.password = password;
+        this.role = role;
+    }
+
     @Column(name = "login")
     private String login;
 
@@ -26,9 +31,8 @@ public class User extends Model {
     private String password;
 
     @Column(name = "role")
+    @Enumerated(EnumType.STRING)
     private Role role;
-
-
 
     public User() {
     }

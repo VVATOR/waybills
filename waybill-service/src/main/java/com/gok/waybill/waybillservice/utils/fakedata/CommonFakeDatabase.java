@@ -20,9 +20,11 @@ public final class CommonFakeDatabase {
 
     // Access
     public static List<User> users = new ArrayList<User>(){{
-        add(new User("admin","admin", Role.ADMIN));
-        add(new User("user","user", Role.USER));
-        add(new User("user","user", Role.USER));
+        addAll(randomUsersList());
+        add(new User(100,true,"admin","admin", Role.ADMIN));
+        add(new User(200,true,"user","user", Role.USER));
+        add(new User(300,true,"vikhlaev","vikhlaev", Role.USER));
+
     }};
 
     ///// additional

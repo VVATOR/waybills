@@ -4,6 +4,7 @@ import com.gok.waybill.waybillservice.data.model.CategoryMachine;
 import com.gok.waybill.waybillservice.data.model.Driver;
 import com.gok.waybill.waybillservice.data.model.Machine;
 import com.gok.waybill.waybillservice.data.model.Waybill;
+import com.gok.waybill.waybillservice.data.model.user.User;
 import com.gok.waybill.waybillservice.data.model.waybill.Result;
 import com.gok.waybill.waybillservice.data.model.waybill.TSM;
 import com.gok.waybill.waybillservice.data.model.waybill.Task;
@@ -28,38 +29,40 @@ public final class FillCommonFakeDatabase {
             MachineRepository machineRepository,
             DriverRepository driverRepository,
             CategoryRepository categoryRepository
-
     ) {
         log.info("Fill Fake Database");
-        List<TSM> tsm = randomTsmList();
+
+
+        // sequrity
+        log.info("==> User");
+        userRepository.saveAll(CommonFakeDatabase.users);
+
+        // additional
+        log.info("==> TSM");
+        List<TSM> tsm = CommonFakeDatabase.tsm;
 
         log.info("==> Task");
-        List<Task> tasks = randomTasksList();
+        List<Task> tasks = CommonFakeDatabase.tasks;
 
-        List<Result> results = randomResultList();
+        log.info("==> Result");
+        List<Result> results = CommonFakeDatabase.results;
 
-        List<WorkDriverAndMachine> workDriverAndMachines = randomWorkDriverAndMachinesList();
+        log.info("==> Work");
+        List<WorkDriverAndMachine> workDriverAndMachines = CommonFakeDatabase.workDriverAndMachines;
 
 
         /// base
-
         log.info("==> Driver");
-        List<Driver> drivers = randomDriverList();
-        driverRepository.saveAll(drivers);
-
+        driverRepository.saveAll(CommonFakeDatabase.drivers);
 
         log.info("==> CategoryMachine");
-        List<CategoryMachine> categoryMachine = randomCategoryList();
-        categoryRepository.saveAll(categoryMachine);
+        categoryRepository.saveAll(CommonFakeDatabase.categoryMachine);
 
         log.info("==> Machine");
-        List<Machine> machines = randomMachineList();
-        machineRepository.saveAll(machines);
-
+        machineRepository.saveAll(CommonFakeDatabase.machines);
 
         log.info("==> Waybill");
-        List<Waybill> waybills = randomWaybillList();
-        waybillRepository.saveAll(waybills);
+        waybillRepository.saveAll(CommonFakeDatabase.waybills);
     }
 }
 
