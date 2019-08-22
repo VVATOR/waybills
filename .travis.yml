@@ -9,7 +9,7 @@ addons:
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   #- mvn clean install sonar:sonar -Dsonar.projectKey=VVATOR_waybills
-  - mvn clean install sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=vvator-github -Dsonar.login=e6165af87334737fa0ceef25a2bf8bf0194a0d01
+  - mvn clean install sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=vvator-github -Dsonar.login=a5486fe3ce5b06829ca8115b9f97c8fa2abe91b0
 branches:
   only:
     - master
