@@ -1,5 +1,14 @@
 dist: bionic
 language: java
+addons:
+  sonarcloud:
+    organization: "vvator-github"
+    token:
+      secure: "8310d4c46801913d498520c3b7005afa3535575b" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean install sonar:sonar -Dsonar.projectKey=VVATOR_waybills
 branches:
   only:
     - master
