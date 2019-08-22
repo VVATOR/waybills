@@ -6,6 +6,8 @@ import com.gok.waybill.waybillservice.data.model.Driver;
 import com.gok.waybill.waybillservice.data.model.Machine;
 import com.gok.waybill.waybillservice.data.model.Waybill;
 import com.gok.waybill.waybillservice.data.model.constants.Status;
+import com.gok.waybill.waybillservice.data.model.user.Role;
+import com.gok.waybill.waybillservice.data.model.user.User;
 import com.gok.waybill.waybillservice.data.model.waybill.Result;
 import com.gok.waybill.waybillservice.data.model.waybill.TSM;
 import com.gok.waybill.waybillservice.data.model.waybill.Task;
@@ -23,6 +25,21 @@ public final class RandomGenerator {
     private static Random r = new Random(3);
 
     private RandomGenerator() {
+    }
+
+    public static List<User> randomUsersList() {
+        List<User> randomUserList = new ArrayList<>();
+        for (int i = 1; i < 10; i++) {
+            User user = User.builder()
+                    .login(faker.pokemon().name())
+                    .password(faker.number().digits(3))
+                    .role(Role.values()[r.nextInt(Role.values().length)])
+                    .build();
+            user.setId(i);
+            randomUserList.add(user);
+        }
+
+        return randomUserList;
     }
 
     public static List<CategoryMachine> randomCategoryList() {
