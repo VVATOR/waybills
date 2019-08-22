@@ -32,3 +32,5 @@ build/
 
 # h2 database
 *.db
+
+*.log
