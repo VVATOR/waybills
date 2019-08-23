@@ -27,14 +27,14 @@ public class FileController {
 
     @PostMapping("/uploadFile")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
-        DBFile dbFile = DBFileStorageService.storeFile(file);
+        DbFile DbFile = DBFileStorageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
-                .path(dbFile.getId() + "")
+                .path(DbFile.getId() + "")
                 .toUriString();
 
-        return new UploadFileResponse(dbFile.getId(), dbFile.getFileName(), fileDownloadUri,
+        return new UploadFileResponse(DbFile.getId(), DbFile.getFileName(), fileDownloadUri,
                 file.getContentType(), file.getSize());
     }
 
@@ -49,12 +49,12 @@ public class FileController {
     @GetMapping("/downloadFile/{fileId}")
     public ResponseEntity<Resource> downloadFile(@PathVariable Integer fileId) {
         // Load file from database
-        DBFile dbFile = DBFileStorageService.getFile(fileId);
+        DbFile DbFile = DBFileStorageService.getFile(fileId);
 
         return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType(dbFile.getFileType()))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + dbFile.getFileName() + "\"")
-                .body(new ByteArrayResource(dbFile.getData()));
+                .contentType(MediaType.parseMediaType(DbFile.getFileType()))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + DbFile.getFileName() + "\"")
+                .body(new ByteArrayResource(DbFile.getData()));
     }
 
 }
