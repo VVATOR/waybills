@@ -10,11 +10,49 @@ schema {
 #    writePost(title: String!, text: String!, category: String) : Post!
 #}
 
-# The Root Query for the application
+# The Root QueryResolver for the application
 type Query {
     allWaybills: [Waybill]
+    allCategoryMachines: [CategoryMachine]
+    allDrivers: [Driver]
+    allMachines: [Machine]
+    allDbFiles: [DbFile]
+    allUsers: [User]
+
     countWaybills: Int!
+
+
+    #allWaybills{
+    #id
+    #}
+    #allCategoryMachines{
+    #id
+    #}
+    #allDrivers{
+    #id
+    #}
+    #allMachines{
+    #id
+    #}
+    #allDbFiles{
+    #id
+    #}
+
     # recentPosts(count: Int, offset: Int): [Waybill]!
+}
+
+type User {
+    id: Int
+    login: String
+    password: String
+    role: String
+}
+
+type DbFile {
+    id: Int
+    fileName: String
+    fileType: String
+    #data: String
 }
 
 #scalar Date
@@ -63,7 +101,7 @@ type Task {
 type Machine {
     id: Int
     name: String
-   # categoryMachine: CategoryMachine
+    # categoryMachine: CategoryMachine
     registrationNumber: String
     garageNumber: String
 }
