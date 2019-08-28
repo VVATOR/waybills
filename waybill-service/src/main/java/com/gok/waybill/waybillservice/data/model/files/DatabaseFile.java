@@ -1,5 +1,4 @@
-package com.gok.waybill.waybillservice.reports;
-
+package com.gok.waybill.waybillservice.data.model.files;
 import com.gok.waybill.waybillservice.data.model.Model;
 import lombok.Builder;
 import lombok.Getter;
@@ -15,7 +14,7 @@ import javax.persistence.Table;
 @Builder
 @Entity
 @Table(name = "files")
-public class DbFile extends Model {
+public class DatabaseFile extends Model {
 
     @Column(name = "fileName")
     private String fileName;
@@ -25,11 +24,11 @@ public class DbFile extends Model {
     @Lob
     private byte[] data;
 
-    public DbFile() {
+    public DatabaseFile() {
 
     }
 
-    public DbFile(String fileName, String fileType, byte[] data) {
+    public DatabaseFile(String fileName, String fileType, byte[] data) {
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;

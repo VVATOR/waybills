@@ -1,5 +1,6 @@
 package com.gok.waybill.waybillservice.reports;
 
+import com.gok.waybill.waybillservice.data.model.files.DatabaseFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class FileController {
 
     @PostMapping("/uploadFile")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
-        DbFile DbFile = DBFileStorageService.storeFile(file);
+        DatabaseFile DbFile = DBFileStorageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
@@ -49,7 +50,7 @@ public class FileController {
     @GetMapping("/downloadFile/{fileId}")
     public ResponseEntity<Resource> downloadFile(@PathVariable Integer fileId) {
         // Load file from database
-        DbFile DbFile = DBFileStorageService.getFile(fileId);
+        DatabaseFile DbFile = DBFileStorageService.getFile(fileId);
 
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(DbFile.getFileType()))

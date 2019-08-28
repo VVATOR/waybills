@@ -1,5 +1,6 @@
 package com.gok.waybill.waybillservice.reports;
 
+import com.gok.waybill.waybillservice.data.model.files.DatabaseFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -13,7 +14,7 @@ public class DBFileStorageService {
     @Autowired
     private DBFileRepository dbFileRepository;
 
-    public DbFile storeFile(MultipartFile file) {
+    public DatabaseFile storeFile(MultipartFile file) {
         // Normalize file name
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
@@ -23,7 +24,7 @@ public class DBFileStorageService {
                 throw new RuntimeException("Sorry! Filename contains invalid path sequence " + fileName);
             }
 
-            DbFile DbFile = new DbFile(fileName, file.getContentType(), file.getBytes());
+            DatabaseFile DbFile = new DatabaseFile(fileName, file.getContentType(), file.getBytes());
 
             return dbFileRepository.save(DbFile);
         } catch (IOException ex) {
@@ -31,7 +32,7 @@ public class DBFileStorageService {
         }
     }
 
-    public DbFile getFile(Integer fileId) {
+    public DatabaseFile getFile(Integer fileId) {
         return dbFileRepository.findById(fileId)
                 .orElseThrow(() -> new RuntimeException("File not found with id " + fileId));
     }
