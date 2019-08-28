@@ -9,7 +9,7 @@ import com.gok.waybill.waybillservice.data.model.Waybill;
 import com.gok.waybill.waybillservice.data.model.user.User;
 import com.gok.waybill.waybillservice.data.repositories.*;
 import com.gok.waybill.waybillservice.reports.DBFileRepository;
-import com.gok.waybill.waybillservice.reports.DbFile;
+import com.gok.waybill.waybillservice.reports.DatabaseFile;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -62,7 +62,7 @@ public class QueryResolver implements GraphQLQueryResolver {
         return machineRepository.findAll();
     }
 
-    public List<DbFile> allDbFiles() {
+    public List<DatabaseFile> allDbFiles() {
         return dbFileRepository.findAll();
     }
 

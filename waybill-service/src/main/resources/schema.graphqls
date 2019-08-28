@@ -16,7 +16,7 @@ type Query {
     allCategoryMachines: [CategoryMachine]
     allDrivers: [Driver]
     allMachines: [Machine]
-    allDbFiles: [DbFile]
+    allDbFiles: [DatabaseFile]
     allUsers: [User]
 
     countWaybills: Int!
@@ -48,7 +48,7 @@ type User {
     role: String
 }
 
-type DbFile {
+type DatabaseFile {
     id: Int
     fileName: String
     fileType: String
