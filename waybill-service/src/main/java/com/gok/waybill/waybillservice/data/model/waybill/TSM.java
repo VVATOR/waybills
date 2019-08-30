@@ -19,7 +19,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "tsm")
+@Table(name = "tsmDto")
 public class TSM extends Model {
 
     @Column(name = "fueling_date")
@@ -37,7 +37,7 @@ public class TSM extends Model {
     @Column(name = "final_amount_of_fuel")
     private Integer finalAmountOfFuel;
 
-    @OneToOne(optional = false, mappedBy = "tsm")
+    @OneToOne(optional = false, mappedBy = "tsmDto")
     private Waybill waybill;
 
     public TSM() {

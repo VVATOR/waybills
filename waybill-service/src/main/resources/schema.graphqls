@@ -1,5 +1,5 @@
 schema {
-    # The query root of Waybill`s GraphQL interface.
+    # The query root of WaybillDto`s GraphQL interface.
     query: Query
 
 }
@@ -38,7 +38,7 @@ type Query {
     #id
     #}
 
-    # recentPosts(count: Int, offset: Int): [Waybill]!
+    # recentPosts(count: Int, offset: Int): [WaybillDto]!
 }
 
 type User {
@@ -64,10 +64,10 @@ type Waybill {
     #  date: Date
     #drivers: [Driver]
     #machine: Machine
-    #task: Task
-    #workDriverAndMachine: WorkDriverAndMachine
-    #result: Result
-    #tsm: TSM
+    #taskDto: TaskDto
+    #workDriverAndMachineDto: WorkDriverAndMachineDto
+    #resultDto: ResultDto
+    #tsmDto: TsmDto
 
     # name: String
     # pageCount: Int

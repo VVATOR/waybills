@@ -18,7 +18,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "task")
+@Table(name = "taskDto")
 public class Task extends Model {
 
     @Column(name = "customer")
@@ -39,7 +39,7 @@ public class Task extends Model {
     @Column(name = "cargo")
     private String cargo;
 
-    @OneToOne(optional = false, mappedBy = "task")
+    @OneToOne(optional = false, mappedBy = "taskDto")
     private Waybill waybill;
 
     public Task() {

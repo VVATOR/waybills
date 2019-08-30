@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Table(name = "work")
 public class WorkDriverAndMachine extends Model {
 
-    @OneToOne(optional = false, mappedBy = "workDriverAndMachine")
+    @OneToOne(optional = false, mappedBy = "workDriverAndMachineDto")
     private Waybill waybill;
 
     public WorkDriverAndMachine() {

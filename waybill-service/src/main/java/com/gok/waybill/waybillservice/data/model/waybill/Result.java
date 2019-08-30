@@ -16,10 +16,10 @@ import javax.persistence.Table;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "result")
+@Table(name = "resultDto")
 public class Result extends Model {
 
-    @OneToOne(optional = false, mappedBy = "result")
+    @OneToOne(optional = false, mappedBy = "resultDto")
     private Waybill waybill;
 
     public Result() {

@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <artifactId>waybill-service</artifactId>
-    <name>waybill-service</name>
+    <name>waybillDto-service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
