@@ -63,6 +63,14 @@
             <version>4.1.0</version>
         </dependency>
 
+
+        <!-- https://mvnrepository.com/artifact/com.github.wnameless/json-flattener -->
+        <dependency>
+            <groupId>com.github.wnameless</groupId>
+            <artifactId>json-flattener</artifactId>
+            <version>0.6.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
