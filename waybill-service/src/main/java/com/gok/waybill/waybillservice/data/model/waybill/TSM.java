@@ -1,6 +1,7 @@
 package com.gok.waybill.waybillservice.data.model.waybill;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gok.waybill.waybillservice.data.model.Model;
 import com.gok.waybill.waybillservice.data.model.Waybill;
 import lombok.AllArgsConstructor;
@@ -19,7 +20,7 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "tsmDto")
+@Table(name = "tsm")
 public class TSM extends Model {
 
     @Column(name = "fueling_date")
@@ -37,9 +38,11 @@ public class TSM extends Model {
     @Column(name = "final_amount_of_fuel")
     private Integer finalAmountOfFuel;
 
-    @OneToOne(optional = false, mappedBy = "tsmDto")
+    @OneToOne(optional = false, mappedBy = "tsm")
+    @JsonIgnore
     private Waybill waybill;
 
     public TSM() {
+        super();
     }
 }

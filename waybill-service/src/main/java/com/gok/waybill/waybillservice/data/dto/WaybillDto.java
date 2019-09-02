@@ -30,14 +30,15 @@ public class WaybillDto extends Dto {
 
     private Collection<DriverDto> drivers;
 
-    private TaskDto taskDto;
+    private TaskDto task;
 
-    private WorkDriverAndMachineDto workDriverAndMachineDto;
+    private WorkDriverAndMachineDto workDriverAndMachine;
 
-    private ResultDto resultDto;
+    private ResultDto result;
 
-    private TsmDto tsmDto;
+    private TsmDto tsm;
 
     public WaybillDto() {
+        super();
     }
 }

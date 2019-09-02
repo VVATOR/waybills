@@ -1,6 +1,7 @@
 package com.gok.waybill.waybillservice.data.model.user;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gok.waybill.waybillservice.data.model.Model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +29,7 @@ public class User extends Model {
     private String login;
 
     @Column(name = "password")
+    @JsonIgnore
     private String password;
 
     @Column(name = "role")

@@ -1,5 +1,6 @@
 package com.gok.waybill.waybillservice.data.model.waybill;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gok.waybill.waybillservice.data.model.Model;
 import com.gok.waybill.waybillservice.data.model.Waybill;
 import lombok.AllArgsConstructor;
@@ -16,12 +17,14 @@ import javax.persistence.Table;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "resultDto")
+@Table(name = "result")
 public class Result extends Model {
 
-    @OneToOne(optional = false, mappedBy = "resultDto")
+    @OneToOne(optional = false, mappedBy = "result")
+    @JsonIgnore
     private Waybill waybill;
 
     public Result() {
+        super();
     }
 }

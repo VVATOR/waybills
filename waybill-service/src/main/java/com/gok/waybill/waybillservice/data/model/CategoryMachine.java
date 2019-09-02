@@ -1,5 +1,6 @@
 package com.gok.waybill.waybillservice.data.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,10 +20,12 @@ public class CategoryMachine extends Model {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "categoryMachine", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "categoryMachine", fetch = FetchType.LAZY)
+    @JsonIgnore
     private Collection<Machine> machines;
 
     public CategoryMachine() {
+        super();
     }
 }
 

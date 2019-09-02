@@ -64,10 +64,10 @@ type Waybill {
     #  date: Date
     #drivers: [Driver]
     #machine: Machine
-    #taskDto: TaskDto
-    #workDriverAndMachineDto: WorkDriverAndMachineDto
-    #resultDto: ResultDto
-    #tsmDto: TsmDto
+    #task: TaskDto
+    #workDriverAndMachine: WorkDriverAndMachineDto
+    #result: ResultDto
+    #tsm: TsmDto
 
     # name: String
     # pageCount: Int
