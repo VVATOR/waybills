@@ -1,11 +1,11 @@
 package com.gok.waybill.waybillservice.utils.fakedata;
 
 import com.github.javafaker.Faker;
+import com.gok.waybill.waybillservice.constants.Status;
 import com.gok.waybill.waybillservice.data.model.CategoryMachine;
 import com.gok.waybill.waybillservice.data.model.Driver;
 import com.gok.waybill.waybillservice.data.model.Machine;
 import com.gok.waybill.waybillservice.data.model.Waybill;
-import com.gok.waybill.waybillservice.data.model.constants.Status;
 import com.gok.waybill.waybillservice.data.model.user.Role;
 import com.gok.waybill.waybillservice.data.model.user.User;
 import com.gok.waybill.waybillservice.data.model.waybill.Result;

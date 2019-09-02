@@ -1,5 +1,6 @@
 package com.gok.waybill.waybillservice.data.model.waybill;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gok.waybill.waybillservice.data.model.Model;
 import com.gok.waybill.waybillservice.data.model.Waybill;
 import lombok.AllArgsConstructor;
@@ -20,8 +21,10 @@ import javax.persistence.Table;
 public class Result extends Model {
 
     @OneToOne(optional = false, mappedBy = "result")
+    @JsonIgnore
     private Waybill waybill;
 
     public Result() {
+        super();
     }
 }

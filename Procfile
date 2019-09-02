@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar waybill-service/target/waybill-service.jar
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar waybillDto-service/target/waybillDto-service.jar

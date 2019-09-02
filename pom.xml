@@ -16,7 +16,7 @@
     <groupId>com.gok.waybill</groupId>
     <artifactId>waybill-root</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>waybill-root</name>
+    <name>waybillDto-root</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
