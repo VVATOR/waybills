@@ -18,21 +18,21 @@ deploy:
   - provider: heroku
     api-key:
       secure: $HEROKU_API_KEY
-    app: waybill-service
+    app: waybillDto-service
     file_glob: true
     file:
       - Procfile
-      - waybill-root/waybill-service/target/waybill-service.jar
+      - waybillDto-root/waybillDto-service/target/waybillDto-service.jar
     on:
       branch: master
   - provider: heroku
     api-key:
       secure: $HEROKU_API_KEY
-    app: waybill-service-dev
+    app: waybillDto-service-dev
     file_glob: true
     file:
       - Procfile
-      - waybill-root/waybill-service/target/waybill-service.jar
+      - waybillDto-root/waybillDto-service/target/waybillDto-service.jar
     on:
       branch: develop
 

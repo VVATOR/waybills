@@ -1,6 +1,7 @@
 package com.gok.waybill.waybillservice.data.model.waybill;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gok.waybill.waybillservice.data.model.Model;
 import com.gok.waybill.waybillservice.data.model.Waybill;
 import lombok.AllArgsConstructor;
@@ -38,8 +39,10 @@ public class TSM extends Model {
     private Integer finalAmountOfFuel;
 
     @OneToOne(optional = false, mappedBy = "tsm")
+    @JsonIgnore
     private Waybill waybill;
 
     public TSM() {
+        super();
     }
 }

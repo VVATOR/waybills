@@ -1,5 +1,6 @@
 package com.gok.waybill.waybillservice.data.model.waybill;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gok.waybill.waybillservice.data.model.Model;
 import com.gok.waybill.waybillservice.data.model.Waybill;
 import lombok.AllArgsConstructor;
@@ -40,8 +41,10 @@ public class Task extends Model {
     private String cargo;
 
     @OneToOne(optional = false, mappedBy = "task")
+    @JsonIgnore
     private Waybill waybill;
 
     public Task() {
+        super();
     }
 }

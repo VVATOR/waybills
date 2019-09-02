@@ -1,7 +1,7 @@
 package com.gok.waybill.waybillservice.data.model;
 
 
-import com.gok.waybill.waybillservice.data.model.constants.Status;
+import com.gok.waybill.waybillservice.constants.Status;
 import com.gok.waybill.waybillservice.data.model.waybill.Result;
 import com.gok.waybill.waybillservice.data.model.waybill.TSM;
 import com.gok.waybill.waybillservice.data.model.waybill.Task;
@@ -22,7 +22,7 @@ import static javax.persistence.FetchType.LAZY;
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "waybill")
+@Table(name = "waybillDto")
 public class Waybill extends Model {
 
     private Status status = Status.ACTIVE;

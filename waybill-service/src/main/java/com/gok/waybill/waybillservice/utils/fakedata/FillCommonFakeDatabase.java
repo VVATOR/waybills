@@ -38,13 +38,13 @@ public final class FillCommonFakeDatabase {
         userRepository.saveAll(CommonFakeDatabase.users);
 
         // additional
-        log.info("==> TSM");
+        log.info("==> TsmDto");
         List<TSM> tsm = CommonFakeDatabase.tsm;
 
-        log.info("==> Task");
+        log.info("==> TaskDto");
         List<Task> tasks = CommonFakeDatabase.tasks;
 
-        log.info("==> Result");
+        log.info("==> ResultDto");
         List<Result> results = CommonFakeDatabase.results;
 
         log.info("==> Work");
@@ -61,7 +61,7 @@ public final class FillCommonFakeDatabase {
         log.info("==> Machine");
         machineRepository.saveAll(CommonFakeDatabase.machines);
 
-        log.info("==> Waybill");
+        log.info("==> WaybillDto");
         waybillRepository.saveAll(CommonFakeDatabase.waybills);
     }
 }
