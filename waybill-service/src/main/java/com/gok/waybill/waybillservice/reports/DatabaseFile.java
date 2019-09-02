@@ -27,7 +27,7 @@ public class DatabaseFile extends Model {
     private byte[] data;
 
     public DatabaseFile() {
-
+        super();
     }
 
     public DatabaseFile(String fileName, String fileType, byte[] data) {
