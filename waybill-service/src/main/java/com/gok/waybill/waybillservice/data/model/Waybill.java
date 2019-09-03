@@ -25,6 +25,7 @@ import static javax.persistence.FetchType.LAZY;
 @Table(name = "waybillDto")
 public class Waybill extends Model {
 
+    @Column
     private Status status = Status.ACTIVE;
 
     @Column
