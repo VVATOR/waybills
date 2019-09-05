@@ -15,14 +15,14 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
 
-import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.FetchType.EAGER;
 
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @Entity
-@Table(name = "waybillDto")
+@Table(name = "waybill")
 public class Waybill extends Model {
 
     @Column
@@ -38,7 +38,7 @@ public class Waybill extends Model {
     @JoinColumn(name = "machine_id")
     private Machine machine;
 
-    @ManyToMany(fetch = LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = EAGER)
     @JoinTable(
             name = "waybill_driver",
             joinColumns = @JoinColumn(name = "way_id"),

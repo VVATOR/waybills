@@ -20,7 +20,7 @@ public class CategoryMachine extends Model {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "categoryMachine", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "categoryMachine", fetch = FetchType.EAGER)
     @JsonIgnore
     private Collection<Machine> machines;
 
