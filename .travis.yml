@@ -1,5 +1,7 @@
 dist: bionic
 language: java
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 addons:
   sonarcloud:
     organization: "vvator-github"
@@ -35,6 +37,4 @@ deploy:
       - waybill-root/waybill-service/target/waybill-service.jar
     on:
       branch: develop
-env:
-  global:
-    - CODECOV_TOKEN=6a396fa2-83d4-48e9-90c9-16813bd5dafc
+
