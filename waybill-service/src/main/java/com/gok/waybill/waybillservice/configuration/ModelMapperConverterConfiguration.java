@@ -39,19 +39,17 @@ public class ModelMapperConverterConfiguration {
     }
 
 
-    private void fieldDtoToModel(Dto dto, Model model) {
+    protected void fieldDtoToModel(Dto dto, Model model) {
         model.setId(dto.getId());
         model.setDeleted(dto.isDeleted());
-
     }
 
-    private void fieldModelToDto(Model model, Dto dto) {
+    protected void fieldModelToDto(Model model, Dto dto) {
         dto.setId(model.getId());
         dto.setDeleted(model.isDeleted());
-
     }
 
-    private final Converter<WaybillDto, Waybill> converterWaybillDtoToModel = new Converter<WaybillDto, Waybill>() {
+    protected Converter<WaybillDto, Waybill> converterWaybillDtoToModel = new Converter<WaybillDto, Waybill>() {
         @Override
         public Waybill convert(MappingContext<WaybillDto, Waybill> context) {
             WaybillDto source = context.getSource();
@@ -71,7 +69,7 @@ public class ModelMapperConverterConfiguration {
             return result;
         }
     };
-    private final Converter<Waybill, WaybillDto> converterWaybillModelToDto = new Converter<Waybill, WaybillDto>() {
+    protected Converter<Waybill, WaybillDto> converterWaybillModelToDto = new Converter<Waybill, WaybillDto>() {
         @Override
         public WaybillDto convert(MappingContext<Waybill, WaybillDto> context) {
             Waybill source = context.getSource();
@@ -93,7 +91,7 @@ public class ModelMapperConverterConfiguration {
     };
 
 
-    private final Converter<CategoryMachineDto, CategoryMachine> converterCategoryMachineDtoToModel = new Converter<CategoryMachineDto, CategoryMachine>() {
+    protected final Converter<CategoryMachineDto, CategoryMachine> converterCategoryMachineDtoToModel = new Converter<CategoryMachineDto, CategoryMachine>() {
         @Override
         public CategoryMachine convert(MappingContext<CategoryMachineDto, CategoryMachine> context) {
             CategoryMachineDto source = context.getSource();
@@ -109,7 +107,7 @@ public class ModelMapperConverterConfiguration {
             return result;
         }
     };
-    private final Converter<CategoryMachine, CategoryMachineDto> converterCategoryMachineModelToDto = new Converter<CategoryMachine, CategoryMachineDto>() {
+    protected final Converter<CategoryMachine, CategoryMachineDto> converterCategoryMachineModelToDto = new Converter<CategoryMachine, CategoryMachineDto>() {
         @Override
         public CategoryMachineDto convert(MappingContext<CategoryMachine, CategoryMachineDto> context) {
             CategoryMachine source = context.getSource();
@@ -128,7 +126,7 @@ public class ModelMapperConverterConfiguration {
 
     };
 
-    private final Converter<DriverDto, Driver> converterDriverDtoToModel = new Converter<DriverDto, Driver>() {
+    protected final Converter<DriverDto, Driver> converterDriverDtoToModel = new Converter<DriverDto, Driver>() {
         @Override
         public Driver convert(MappingContext<DriverDto, Driver> context) {
             DriverDto source = context.getSource();
@@ -139,7 +137,7 @@ public class ModelMapperConverterConfiguration {
             return result;
         }
     };
-    private final Converter<Driver, DriverDto> converterDriverModelToDto = new Converter<Driver, DriverDto>() {
+    protected final Converter<Driver, DriverDto> converterDriverModelToDto = new Converter<Driver, DriverDto>() {
         @Override
         public DriverDto convert(MappingContext<Driver, DriverDto> context) {
             Driver source = context.getSource();
@@ -152,7 +150,7 @@ public class ModelMapperConverterConfiguration {
 
     };
 
-    private final Converter<MachineDto, Machine> converterMachineDtoToModel = new Converter<MachineDto, Machine>() {
+    protected final Converter<MachineDto, Machine> converterMachineDtoToModel = new Converter<MachineDto, Machine>() {
         @Override
         public Machine convert(MappingContext<MachineDto, Machine> context) {
             MachineDto source = context.getSource();
@@ -164,7 +162,7 @@ public class ModelMapperConverterConfiguration {
             return result;
         }
     };
-    private final Converter<Machine, MachineDto> converterMachineModelToDto = new Converter<Machine, MachineDto>() {
+    protected final Converter<Machine, MachineDto> converterMachineModelToDto = new Converter<Machine, MachineDto>() {
         @Override
         public MachineDto convert(MappingContext<Machine, MachineDto> context) {
             Machine source = context.getSource();
@@ -175,7 +173,6 @@ public class ModelMapperConverterConfiguration {
             result.setGarageNumber(source.getGarageNumber());
             return result;
         }
-
     };
 
 }
