@@ -1,7 +1,7 @@
 package com.gok.waybill.waybillservice.data.model;
 
 
-import com.gok.waybill.waybillservice.data.model.constants.Status;
+import com.gok.waybill.waybillservice.constants.Status;
 import com.gok.waybill.waybillservice.data.model.waybill.Result;
 import com.gok.waybill.waybillservice.data.model.waybill.TSM;
 import com.gok.waybill.waybillservice.data.model.waybill.Task;
@@ -15,7 +15,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Collection;
 
-import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.FetchType.EAGER;
 
 @Getter
 @Setter
@@ -25,6 +25,7 @@ import static javax.persistence.FetchType.LAZY;
 @Table(name = "waybill")
 public class Waybill extends Model {
 
+    @Column
     private Status status = Status.ACTIVE;
 
     @Column
@@ -37,7 +38,7 @@ public class Waybill extends Model {
     @JoinColumn(name = "machine_id")
     private Machine machine;
 
-    @ManyToMany(fetch = LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = EAGER)
     @JoinTable(
             name = "waybill_driver",
             joinColumns = @JoinColumn(name = "way_id"),

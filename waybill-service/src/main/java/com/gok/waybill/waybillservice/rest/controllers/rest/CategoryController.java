@@ -2,16 +2,17 @@ package com.gok.waybill.waybillservice.rest.controllers.rest;
 
 
 import com.gok.waybill.waybillservice.data.model.CategoryMachine;
+import com.gok.waybill.waybillservice.data.repositories.CategoryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import static com.gok.waybill.waybillservice.utils.fakedata.CommonFakeDatabase.categoryMachine;
 
 @RestController
 @RequestMapping("/categories/")
 public class CategoryController extends AbstractRestController<CategoryMachine> {
 
-    public CategoryController() {
-        super(categoryMachine);
+    @Autowired
+    public CategoryController(CategoryRepository categoryRepository) {
+        super(categoryRepository, CategoryMachine.class);
     }
 }

@@ -1,0 +1,61 @@
+{
+    "id": 1,
+    "status": "BROKEN",
+    "number": "74697",
+    "date": "1974-11-18",
+    "machine": {
+        "id": 6,
+        "name": "Lotlux",
+        "categoryMachine": {
+            "id": 9,
+            "name": "ОАО ИвановоСбытТрейд",
+            "machines": null,
+            "deleted": false
+        },
+        "registrationNumber": "8",
+        "garageNumber": "2",
+        "waybillDto": null,
+        "deleted": false
+    },
+    "drivers": [
+        {
+            "id": 7,
+            "name": "Лаврентий Смирнов",
+            "personalNumber": "5632",
+            "waybills": null,
+            "deleted": false
+        }
+    ],
+    "taskDto": {
+        "id": 8,
+        "customer": "Pikachu",
+        "dateArriving": "2019-09-21",
+        "dateDeparture": "2019-06-23",
+        "departurePoint": "Пермь",
+        "destinationPoint": "Краснодар",
+        "cargo": "Samuel Smith’s Imperial IPA",
+        "waybillDto": null,
+        "deleted": false
+    },
+    "workDriverAndMachineDto": {
+        "id": 2,
+        "waybillDto": null,
+        "deleted": false
+    },
+    "resultDto": {
+        "id": 8,
+        "waybillDto": null,
+        "deleted": false
+    },
+    "tsmDto": {
+        "id": 6,
+        "fuelingDate": "2019-11-19",
+        "fuelType": "Chocolate St",
+        "amountOfFuel": 90,
+        "startedAmountOfFuel": 74,
+        "finalAmountOfFuel": 6,
+        "waybillDto": null,
+        "deleted": false
+    },
+    "deleted": false
+}

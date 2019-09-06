@@ -1,13 +1,13 @@
 package com.gok.waybill.waybillservice.data.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Getter
 @Setter
@@ -30,8 +30,10 @@ public class Machine extends Model {
     private String garageNumber;
 
     @OneToOne(optional = false, mappedBy = "machine")
+    @JsonIgnore
     private Waybill waybill;
 
     public Machine() {
+        super();
     }
 }

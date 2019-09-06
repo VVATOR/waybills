@@ -1,11 +1,15 @@
 package com.gok.waybill.waybillservice.data.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.Collection;
 
 @Getter
@@ -22,8 +26,10 @@ public class Driver extends Model {
     private String personalNumber;
 
     @ManyToMany(mappedBy = "drivers")
+    @JsonIgnore
     private Collection<Waybill> waybills;
 
     public Driver() {
+        super();
     }
 }
