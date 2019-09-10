@@ -6,9 +6,7 @@ import com.gok.waybill.waybillservice.data.model.Model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.modelmapper.ModelMapper;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.Assert.assertEquals;
 
@@ -42,9 +40,7 @@ class ModelMapperConverterConfigurationTest {
         Model model = new Driver();
         model.setId(1);
         model.setDeleted(true);
-
         Dto dto = new Dto(1, true);
-
         conf.fieldModelToDto(model, dto);
         assertEquals(dto.getId(), model.getId());
         assertEquals(dto.isDeleted(), model.isDeleted());

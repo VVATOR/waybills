@@ -9,7 +9,7 @@
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <artifactId>waybill-service</artifactId>
-    <name>waybillDto-service</name>
+    <name>waybill-service</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -72,6 +72,13 @@
             <version>5.5.1</version>
             <scope>test</scope>
         </dependency>
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.graphql-java/graphql-spring-boot-test-autoconfigure &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.graphql-java</groupId>-->
+        <!--            <artifactId>graphql-spring-boot-test-autoconfigure</artifactId>-->
+        <!--            <version>5.0.2</version>-->
+        <!--        </dependency>-->
+
 
         <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
         <dependency>
@@ -92,7 +99,8 @@
                     <finalName>${
 
 
-                    project.name}</finalName>
+                    project.name}
+                    </finalName>
                     <mainClass>com.gok.waybill.waybillservice.WaybillServiceApplication</mainClass>
                 </configuration>
             </plugin>

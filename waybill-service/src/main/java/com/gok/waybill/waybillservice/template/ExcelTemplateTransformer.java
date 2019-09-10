@@ -3,10 +3,8 @@ package com.gok.waybill.waybillservice.template;
 
 import com.github.wnameless.json.flattener.JsonFlattener;
 import com.gok.waybill.waybillservice.reports.DatabaseFile;
-import jdk.nashorn.internal.parser.JSONParser;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -23,8 +21,6 @@ import java.util.Map;
 public class ExcelTemplateTransformer {
 
 
-
-
     public ResponseEntity<Resource> templateResource(DatabaseFile dbfile, String jsonObject) throws IOException {
         /*final Map<String, Object> beans = new HashMap<>();
         beans.put("waybills", CommonFakeDatabase.waybills);*/
@@ -35,7 +31,7 @@ public class ExcelTemplateTransformer {
         log.info("{}", beans);
         log.info("-----------------------------------------------");
 
-        log.info("{}",Arrays.toString(beans.entrySet().toArray()));
+        log.info("{}", Arrays.toString(beans.entrySet().toArray()));
         beans.forEach((k, v) -> log.info(k + " : " + v));
         log.info("-----------------------------------------------");
 
@@ -82,7 +78,7 @@ public class ExcelTemplateTransformer {
                     //   log.info("cell {} - {}", cell.getCellType(), cell);
                     if (cell.getStringCellValue().contains("${")) { //TODO regexp
                         String trim = cell.getStringCellValue().trim();
-                        String marker = trim.substring(2,trim.length()-1);
+                        String marker = trim.substring(2, trim.length() - 1);
                         String newValue = (String) beans.get(marker);
 
                         log.info("map {} - {} - {}", cell.getCellType(), cell, newValue);

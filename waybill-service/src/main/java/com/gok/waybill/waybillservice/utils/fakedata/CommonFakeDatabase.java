@@ -19,11 +19,11 @@ import static com.gok.waybill.waybillservice.utils.fakedata.RandomGenerator.*;
 public final class CommonFakeDatabase {
 
     // Access
-    public static List<User> users = new ArrayList<User>(){{
+    public static List<User> users = new ArrayList<User>() {{
         addAll(randomUsersList());
-        add(new User(100,true,"admin","admin", Role.ADMIN));
-        add(new User(200,true,"user","user", Role.USER));
-        add(new User(300,true,"vikhlaev","vikhlaev", Role.USER));
+        add(new User(100, true, "admin", "admin", Role.ADMIN));
+        add(new User(200, true, "user", "user", Role.USER));
+        add(new User(300, true, "vikhlaev", "vikhlaev", Role.USER));
 
     }};
 

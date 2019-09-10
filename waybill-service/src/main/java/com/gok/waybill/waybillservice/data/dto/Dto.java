@@ -9,13 +9,13 @@ import java.io.Serializable;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Dto implements Serializable{
+public class Dto implements Serializable {
 
-        private Integer id;
+    private Integer id;
 
-        private boolean isDeleted = false;
+    private boolean isDeleted = false;
 
-        public Dto() {
-        }
+    public Dto() {
     }
+}
 
