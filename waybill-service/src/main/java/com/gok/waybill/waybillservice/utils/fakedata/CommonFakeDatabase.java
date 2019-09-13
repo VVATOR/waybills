@@ -1,10 +1,10 @@
 package com.gok.waybill.waybillservice.utils.fakedata;
 
+import com.gok.waybill.waybillservice.constants.UserRole;
 import com.gok.waybill.waybillservice.data.model.CategoryMachine;
 import com.gok.waybill.waybillservice.data.model.Driver;
 import com.gok.waybill.waybillservice.data.model.Machine;
 import com.gok.waybill.waybillservice.data.model.Waybill;
-import com.gok.waybill.waybillservice.data.model.user.Role;
 import com.gok.waybill.waybillservice.data.model.user.User;
 import com.gok.waybill.waybillservice.data.model.waybill.Result;
 import com.gok.waybill.waybillservice.data.model.waybill.TSM;
@@ -21,9 +21,9 @@ public final class CommonFakeDatabase {
     // Access
     public static List<User> users = new ArrayList<User>() {{
         addAll(randomUsersList());
-        add(new User(100, true, "admin", "admin", Role.ADMIN));
-        add(new User(200, true, "user", "user", Role.USER));
-        add(new User(300, true, "vikhlaev", "vikhlaev", Role.USER));
+        add(new User(100, true, "admin", "admin", UserRole.ADMIN));
+        add(new User(200, true, "user", "user", UserRole.USER));
+        add(new User(300, true, "vikhlaev", "vikhlaev", UserRole.USER));
 
     }};
 

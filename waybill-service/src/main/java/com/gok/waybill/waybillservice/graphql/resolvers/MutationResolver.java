@@ -33,6 +33,7 @@ public class MutationResolver implements GraphQLMutationResolver {
     private DBFileRepository dbFileRepository;
 
     public MutationResolver() {
+        super();
     }
 
     @Autowired

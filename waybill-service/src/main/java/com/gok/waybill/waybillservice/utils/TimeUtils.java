@@ -8,6 +8,7 @@ import java.util.Date;
 public final class TimeUtils {
 
     private TimeUtils() {
+        super();
     }
 
     public static LocalDate convertToLocalDateViaMilisecond(Date dateToConvert) {
@@ -16,7 +17,4 @@ public final class TimeUtils {
                 .toLocalDate();
     }
 
-    public LocalDate convertToLocalDateViaSqlDate(Date dateToConvert) {
-        return new java.sql.Date(dateToConvert.getTime()).toLocalDate();
-    }
 }

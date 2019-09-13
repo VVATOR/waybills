@@ -2,11 +2,11 @@ package com.gok.waybill.waybillservice.utils.fakedata;
 
 import com.github.javafaker.Faker;
 import com.gok.waybill.waybillservice.constants.Status;
+import com.gok.waybill.waybillservice.constants.UserRole;
 import com.gok.waybill.waybillservice.data.model.CategoryMachine;
 import com.gok.waybill.waybillservice.data.model.Driver;
 import com.gok.waybill.waybillservice.data.model.Machine;
 import com.gok.waybill.waybillservice.data.model.Waybill;
-import com.gok.waybill.waybillservice.data.model.user.Role;
 import com.gok.waybill.waybillservice.data.model.user.User;
 import com.gok.waybill.waybillservice.data.model.waybill.Result;
 import com.gok.waybill.waybillservice.data.model.waybill.TSM;
@@ -33,7 +33,7 @@ public final class RandomGenerator {
             User user = User.builder()
                     .login(faker.pokemon().name())
                     .password(faker.number().digits(3))
-                    .role(Role.values()[r.nextInt(Role.values().length)])
+                    .role(UserRole.values()[r.nextInt(UserRole.values().length)])
                     .build();
             user.setId(i);
             randomUserList.add(user);

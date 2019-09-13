@@ -1,0 +1,31 @@
+server:
+  port: 7080
+spring:
+  application:
+    name: waybill-service-test
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:test_db_waybill
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create
+
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
+
+graphiql:
+  mapping: /graphiql
+  enabled: true
+
+logging:
+  level:
+    web: DEBUG
