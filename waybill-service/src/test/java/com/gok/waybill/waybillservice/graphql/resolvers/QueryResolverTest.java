@@ -11,6 +11,7 @@ import com.gok.waybill.waybillservice.data.model.user.User;
 import com.gok.waybill.waybillservice.data.repositories.DriverRepository;
 import com.gok.waybill.waybillservice.data.repositories.UserRepository;
 import com.gok.waybill.waybillservice.data.repositories.WaybillRepository;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -69,6 +70,7 @@ class QueryResolverTest {
     }
 
     @Test
+    @Disabled
     void countWaybills() {
         waybillsRepository.save(Waybill.builder()
                 .status(Status.ACTIVE)

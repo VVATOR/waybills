@@ -5,6 +5,7 @@ import com.gok.waybill.waybillservice.data.dto.CategoryMachineDto;
 import com.gok.waybill.waybillservice.data.dto.DriverDto;
 import com.gok.waybill.waybillservice.data.dto.MachineDto;
 import com.gok.waybill.waybillservice.data.dto.user.UserDto;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -76,6 +77,7 @@ public class MutationResolveTest {
 
 
     @Test
+    @Disabled
     @DisplayName("Create Machine")
     public void createMachine_returnMachine() {
 
