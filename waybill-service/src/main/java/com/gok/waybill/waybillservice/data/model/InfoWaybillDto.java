@@ -15,4 +15,7 @@ public class InfoWaybillDto {
     private Integer totalNumber;
     private Integer activeNumber;
 
+    public InfoWaybillDto() {
+        super();
+    }
 }

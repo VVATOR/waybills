@@ -11,5 +11,6 @@ import lombok.Setter;
 public class ResultDto extends Dto {
 
     public ResultDto() {
+        super();
     }
 }

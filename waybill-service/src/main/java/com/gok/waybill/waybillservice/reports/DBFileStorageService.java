@@ -10,29 +10,32 @@ import java.io.IOException;
 @Service
 public class DBFileStorageService {
 
-    @Autowired
     private DBFileRepository dbFileRepository;
+
+    @Autowired
+    public DBFileStorageService(DBFileRepository dbFileRepository) {
+        this.dbFileRepository = dbFileRepository;
+    }
 
     public DatabaseFile storeFile(MultipartFile file) {
         // Normalize file name
-        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename() + "");
 
         try {
             // Check if the file's name contains invalid characters
             if (fileName.contains("..")) {
-                throw new RuntimeException("Sorry! Filename contains invalid path sequence " + fileName);
+                throw new IllegalStateException("Sorry! Filename contains invalid path sequence " + fileName);
             }
 
-            DatabaseFile DatabaseFile = new DatabaseFile(fileName, file.getContentType(), file.getBytes());
-
-            return dbFileRepository.save(DatabaseFile);
+            DatabaseFile databaseFile = new DatabaseFile(fileName, file.getContentType(), file.getBytes());
+            return dbFileRepository.save(databaseFile);
         } catch (IOException ex) {
-            throw new RuntimeException("Could not store file " + fileName + ". Please try again!", ex);
+            throw new IllegalStateException("Could not store file " + fileName + ". Please try again!", ex);
         }
     }
 
     public DatabaseFile getFile(Integer fileId) {
         return dbFileRepository.findById(fileId)
-                .orElseThrow(() -> new RuntimeException("File not found with id " + fileId));
+                .orElseThrow(() -> new IllegalStateException("File not found with id " + fileId));
     }
 }

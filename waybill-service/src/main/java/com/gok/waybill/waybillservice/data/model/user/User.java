@@ -38,5 +38,6 @@ public class User extends Model {
     private UserRole role;
 
     public User() {
+        super();
     }
 }

@@ -15,5 +15,6 @@ public class DriverDto extends Dto {
     private String personalNumber;
 
     public DriverDto() {
+        super();
     }
 }

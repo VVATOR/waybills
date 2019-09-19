@@ -16,6 +16,7 @@ public class Dto implements Serializable {
     private boolean isDeleted = false;
 
     public Dto() {
+        super();
     }
 }
 

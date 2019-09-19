@@ -27,5 +27,6 @@ public class TaskDto extends Dto {
     private String cargo;
 
     public TaskDto() {
+        super();
     }
 }

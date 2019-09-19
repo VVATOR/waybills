@@ -14,6 +14,10 @@ public class UploadFileResponse {
     private String fileType;
     private long size;
 
+    private UploadFileResponse() {
+        super();
+    }
+
     public UploadFileResponse(Integer id, String fileName, String fileDownloadUri, String fileType, long size) {
         this.id = id;
         this.fileName = fileName;
