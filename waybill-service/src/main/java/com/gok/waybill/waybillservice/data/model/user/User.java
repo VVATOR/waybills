@@ -2,6 +2,7 @@ package com.gok.waybill.waybillservice.data.model.user;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.gok.waybill.waybillservice.constants.UserRole;
 import com.gok.waybill.waybillservice.data.model.Model;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +19,7 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User extends Model {
 
-    public User(Integer id, boolean isDeleted, String login, String password, Role role) {
+    public User(Integer id, boolean isDeleted, String login, String password, UserRole role) {
         super(id, isDeleted);
         this.login = login;
         this.password = password;
@@ -34,8 +35,9 @@ public class User extends Model {
 
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private UserRole role;
 
     public User() {
+        super();
     }
 }

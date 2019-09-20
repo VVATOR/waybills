@@ -1,6 +1,6 @@
 package com.gok.waybill.waybillservice.data.repositories;
 
-import com.gok.waybill.waybillservice.data.model.user.Role;
+import com.gok.waybill.waybillservice.constants.UserRole;
 import com.gok.waybill.waybillservice.data.model.user.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ public class UserRepositoryIntegrationTest {
         final User alex = User.builder()
                 .login("Lelek")
                 .password("Bolek")
-                .role(Role.ADMIN)
+                .role(UserRole.ADMIN)
                 .build();
         final User savedUser = userRepository.save(alex);
         final User found = userRepository.findByLogin(alex.getLogin());

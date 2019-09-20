@@ -1,10 +1,10 @@
 package com.gok.waybill.waybillservice.utils.fakedata;
 
+import com.gok.waybill.waybillservice.constants.UserRole;
 import com.gok.waybill.waybillservice.data.model.CategoryMachine;
 import com.gok.waybill.waybillservice.data.model.Driver;
 import com.gok.waybill.waybillservice.data.model.Machine;
 import com.gok.waybill.waybillservice.data.model.Waybill;
-import com.gok.waybill.waybillservice.data.model.user.Role;
 import com.gok.waybill.waybillservice.data.model.user.User;
 import com.gok.waybill.waybillservice.data.model.waybill.Result;
 import com.gok.waybill.waybillservice.data.model.waybill.TSM;
@@ -18,32 +18,38 @@ import static com.gok.waybill.waybillservice.utils.fakedata.RandomGenerator.*;
 
 public final class CommonFakeDatabase {
 
-    // Access
-    public static List<User> users = new ArrayList<User>() {{
-        addAll(randomUsersList());
-        add(new User(100, true, "admin", "admin", Role.ADMIN));
-        add(new User(200, true, "user", "user", Role.USER));
-        add(new User(300, true, "vikhlaev", "vikhlaev", Role.USER));
+    private CommonFakeDatabase() {
+        super();
+    }
 
-    }};
+    // Access
+    public static final List<User> users = initBaseUsersList();
+
+    private static List<User> initBaseUsersList() {
+        List<User> users = new ArrayList<>(randomUsersList());
+        users.add(new User(100, true, "admin", "admin", UserRole.ADMIN));
+        users.add(new User(200, true, "user", "user", UserRole.USER));
+        users.add(new User(300, true, "vikhlaev", "vikhlaev", UserRole.USER));
+        return users;
+    }
 
     ///// additional
-    public static List<TSM> tsm = randomTsmList();
+    public static final List<TSM> tsm = randomTsmList();
 
-    public static List<Task> tasks = randomTasksList();
+    public static final List<Task> tasks = randomTasksList();
 
-    public static List<Result> results = randomResultList();
+    public static final List<Result> results = randomResultList();
 
-    public static List<WorkDriverAndMachine> workDriverAndMachines = randomWorkDriverAndMachinesList();
+    public static final List<WorkDriverAndMachine> workDriverAndMachines = randomWorkDriverAndMachinesList();
 
     /// base
-    public static List<CategoryMachine> categoryMachine = randomCategoryList();
+    public static final List<CategoryMachine> categoryMachine = randomCategoryList();
 
-    public static List<Driver> drivers = randomDriverList();
+    public static final List<Driver> drivers = randomDriverList();
 
-    public static List<Machine> machines = randomMachineList();
+    public static final List<Machine> machines = randomMachineList();
 
-    public static List<Waybill> waybills = randomWaybillList();
+    public static final List<Waybill> waybills = randomWaybillList();
 
 
 }

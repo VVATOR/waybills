@@ -1,7 +1,6 @@
 package com.gok.waybill.waybillservice.reports;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
@@ -16,25 +15,28 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @RestController
 public class FileController {
 
-    private static final Logger logger =
-            LoggerFactory.getLogger(FileController.class);
+    private DBFileStorageService dbFileStorageService;
 
     @Autowired
-    private DBFileStorageService DBFileStorageService;
+    public FileController(DBFileStorageService dbFileStorageService) {
+        this.dbFileStorageService = dbFileStorageService;
+    }
+
 
     @PostMapping("/uploadFile")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file) {
-        DatabaseFile DatabaseFile = DBFileStorageService.storeFile(file);
+        DatabaseFile databaseFile = dbFileStorageService.storeFile(file);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/downloadFile/")
-                .path(DatabaseFile.getId() + "")
+                .path(databaseFile.getId() + "")
                 .toUriString();
 
-        return new UploadFileResponse(DatabaseFile.getId(), DatabaseFile.getFileName(), fileDownloadUri,
+        return new UploadFileResponse(databaseFile.getId(), databaseFile.getFileName(), fileDownloadUri,
                 file.getContentType(), file.getSize());
     }
 
@@ -42,19 +44,19 @@ public class FileController {
     public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
         return Arrays.asList(files)
                 .stream()
-                .map(file -> uploadFile(file))
+                .map(this::uploadFile)
                 .collect(Collectors.toList());
     }
 
     @GetMapping("/downloadFile/{fileId}")
     public ResponseEntity<Resource> downloadFile(@PathVariable Integer fileId) {
         // Load file from database
-        DatabaseFile DatabaseFile = DBFileStorageService.getFile(fileId);
+        DatabaseFile file = dbFileStorageService.getFile(fileId);
 
         return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType(DatabaseFile.getFileType()))
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + DatabaseFile.getFileName() + "\"")
-                .body(new ByteArrayResource(DatabaseFile.getData()));
+                .contentType(MediaType.parseMediaType(file.getFileType()))
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFileName() + "\"")
+                .body(new ByteArrayResource(file.getData()));
     }
 
 }

@@ -28,5 +28,6 @@ public class UserDto extends Dto {
     private UserRole role;
 
     public UserDto() {
+        super();
     }
 }

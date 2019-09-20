@@ -1,13 +1,13 @@
 server:
-  port: 8080
+  port: 7080
 spring:
   application:
-    name: waybill-service
+    name: waybill-service-test
   h2:
     console:
       enabled: true
   datasource:
-    url: jdbc:h2:file:./src/main/resources/db_waybill;AUTO_SERVER=TRUE
+    url: jdbc:h2:mem:test_db_waybill
     driverClassName: org.h2.Driver
     username: sa
     password: password

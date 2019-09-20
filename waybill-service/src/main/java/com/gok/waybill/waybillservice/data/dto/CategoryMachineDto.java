@@ -18,6 +18,7 @@ public class CategoryMachineDto extends Dto {
     private Collection<MachineDto> machines;
 
     public CategoryMachineDto() {
+        super();
     }
 }
 

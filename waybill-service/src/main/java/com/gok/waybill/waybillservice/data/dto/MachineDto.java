@@ -20,5 +20,6 @@ public class MachineDto extends Dto {
     private String garageNumber;
 
     public MachineDto() {
+        super();
     }
 }

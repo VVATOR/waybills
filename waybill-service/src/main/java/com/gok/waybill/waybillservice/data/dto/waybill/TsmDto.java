@@ -27,5 +27,6 @@ public class TsmDto extends Dto {
 
 
     public TsmDto() {
+        super();
     }
 }

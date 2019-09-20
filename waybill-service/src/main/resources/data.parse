@@ -14,7 +14,7 @@
         },
         "registrationNumber": "8",
         "garageNumber": "2",
-        "waybillDto": null,
+        "waybill": null,
         "deleted": false
     },
     "drivers": [
@@ -34,17 +34,17 @@
         "departurePoint": "Пермь",
         "destinationPoint": "Краснодар",
         "cargo": "Samuel Smith’s Imperial IPA",
-        "waybillDto": null,
+        "waybill": null,
         "deleted": false
     },
     "workDriverAndMachineDto": {
         "id": 2,
-        "waybillDto": null,
+        "waybill": null,
         "deleted": false
     },
     "resultDto": {
         "id": 8,
-        "waybillDto": null,
+        "waybill": null,
         "deleted": false
     },
     "tsmDto": {
@@ -54,7 +54,7 @@
         "amountOfFuel": 90,
         "startedAmountOfFuel": 74,
         "finalAmountOfFuel": 6,
-        "waybillDto": null,
+        "waybill": null,
         "deleted": false
     },
     "deleted": false

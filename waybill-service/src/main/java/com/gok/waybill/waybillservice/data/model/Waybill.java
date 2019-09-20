@@ -63,5 +63,6 @@ public class Waybill extends Model {
     private TSM tsm; //+
 
     public Waybill() {
+        super();
     }
 }

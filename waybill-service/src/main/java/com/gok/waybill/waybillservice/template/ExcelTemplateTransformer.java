@@ -20,20 +20,18 @@ import java.util.Map;
 @Slf4j
 public class ExcelTemplateTransformer {
 
+    public static final String LINE_SEPARATOR = "-----------------------------------------------";
 
     public ResponseEntity<Resource> templateResource(DatabaseFile dbfile, String jsonObject) throws IOException {
-        /*final Map<String, Object> beans = new HashMap<>();
-        beans.put("waybills", CommonFakeDatabase.waybills);*/
-
 
         Map<String, Object> beans = JsonFlattener.flattenAsMap(jsonObject);
-        log.info("-----------------------------------------------");
+        log.info(LINE_SEPARATOR);
         log.info("{}", beans);
-        log.info("-----------------------------------------------");
+        log.info(LINE_SEPARATOR);
 
         log.info("{}", Arrays.toString(beans.entrySet().toArray()));
         beans.forEach((k, v) -> log.info(k + " : " + v));
-        log.info("-----------------------------------------------");
+        log.info(LINE_SEPARATOR);
 
         byte[] data = dbfile.getData();
 
@@ -41,7 +39,7 @@ public class ExcelTemplateTransformer {
         log.info("Running Grouping Demo");
         try (
                 InputStream is = new ByteArrayInputStream(data);
-                OutputStream os = new FileOutputStream(file);
+                OutputStream os = new FileOutputStream(file)
         ) {
             Workbook workbook = this.transform(is, beans);
             workbook.write(os);
@@ -75,7 +73,6 @@ public class ExcelTemplateTransformer {
                     if (cell.getCellType() == CellType.BLANK) {
                         continue;
                     }
-                    //   log.info("cell {} - {}", cell.getCellType(), cell);
                     if (cell.getStringCellValue().contains("${")) { //TODO regexp
                         String trim = cell.getStringCellValue().trim();
                         String marker = trim.substring(2, trim.length() - 1);

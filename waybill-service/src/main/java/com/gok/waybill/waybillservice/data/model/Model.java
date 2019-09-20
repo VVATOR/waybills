@@ -22,6 +22,7 @@ public abstract class Model implements Serializable {
     private boolean isDeleted = false;
 
     public Model() {
+        super();
     }
 }
 
