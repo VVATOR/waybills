@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.gok.waybill</groupId>
         <artifactId>waybill-root</artifactId>
-        <version>0.1.0</version>
+        <version>0.1.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <artifactId>waybill-service</artifactId>
