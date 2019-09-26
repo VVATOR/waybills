@@ -4,6 +4,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>waybill-service</module>
+        <module>waybill-mail-service</module>
     </modules>
 
     <parent>

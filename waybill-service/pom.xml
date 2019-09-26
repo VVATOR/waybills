@@ -97,7 +97,7 @@
                 <configuration>
                     <finalName>${project.name}
                     </finalName>
-                    <mainClass>com.gok.waybill.waybillservice.WaybillServiceApplication</mainClass>
+                    <mainClass>com.gok.waybill.waybillservice.com.gok.waybill.waybillmailservice.WaybillServiceApplication</mainClass>
                 </configuration>
             </plugin>
 

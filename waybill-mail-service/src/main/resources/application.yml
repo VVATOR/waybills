@@ -1,0 +1,8 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: waybill-mail-service
+logging:
+  level:
+    web: DEBUG
