@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .red {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+
+<div style="
+    border-style:solid;
+    border-width:thin;
+    border-color:#dadce0;
+    border-radius:8px;
+    padding:40px 20px
+    ">
+
+    This is a test mail body Mr. <span class="red" style="color: green">$fName</span> <span
+        class="blue">$lName</span>.<br/>
+    You may put HTML/text content here.
+    <br/>
+
+    <br/>
+    With best wishes,<br/>
+    $proprietor
+
+    <style>
+        .red {
+            color: red;
+        }
+
+        .blue {
+            color: blue;
+            background-color: orange;
+        }
+
+        <
+        /
+        div >
+    </style>
+</body>
+</html>

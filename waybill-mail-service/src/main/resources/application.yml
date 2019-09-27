@@ -3,6 +3,21 @@ server:
 spring:
   application:
     name: waybill-mail-service
+#  velocity:
+#    resourceLoaderPath: "classpath:/templates/"
+#    prefix: ""
+#    suffix: ".vm"
+#    cache: false
+#    check-template-location: true
+#    content-type: "text/html"
+#    charset: "UTF-8"
+#    properties:
+#      input:encoding: "UTF-8"
+#      output:encoding: "UTF-8"
+#  servlet:
+#    multipart:
+#      max-file-size:
+
 logging:
   level:
     web: DEBUG
